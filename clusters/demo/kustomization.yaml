@@ -1,0 +1,14 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: demo
+configurations:
+- kustomizeconfig.yaml
+resources:
+- 01-kbot-ns.yaml
+- 02-kbot-gr.yaml
+- 03-kbot-hr.yaml
+secretGenerator:
+  - name: kbot-secret
+    files:
+      - token.txt
